@@ -1,0 +1,42 @@
+cusid=[]
+cusname=[]
+cusage=[]
+def custadd(id,name,age):
+     cusid.append(id)
+     cusname.append(name)
+     cusage.append(age)
+     return(id,name,age)
+def custserch(id,name,age):
+     index=cusid.index(id)
+     name=cusname[index]
+     age=cusage[index]
+     return(id,name,age)
+while(1):
+  print("1-add customer")
+  print("2-search customer")
+  print("3-delete customer")
+  print("4-display all customer")
+
+  choice=int(input ("enter choice 1 to 5: "))
+  if(choice==1):
+     id=input("enter the customer id")
+     name=input("enter the customer name")
+     age=input("enter the customer age")
+     u=custadd(id,name,age)
+     print(u)
+  elif(choice==2):
+     id=input("enter customer id")
+     custserch(id,name,age)
+     print("cusid: ",id,"cusage: ",age,"cusname: ",name)
+  elif(choice==3):
+     id=input("enter customerid which are delete")
+     index=cusid.index(id) 
+     cusid.pop(index)
+     cusage.pop(index)
+     cusname.pop(index)
+     print("customer delete successfully")
+  elif(choice==4):
+     for i in range(len(cusid)):
+       print("cusid: ",cusid[i],"\t\tcusname: ",cusname[i],"\t\tcusage: ",cusage[i])
+  else:
+     exit()
